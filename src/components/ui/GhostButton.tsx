@@ -1,6 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+// Workaround: framer-motion / React types mismatch in production build
+// Cast motion.button to any here so we avoid the MotionProps vs HTML props type conflict
+const MotionButton: any = motion.button
+
 interface GhostButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
 }
@@ -11,7 +15,7 @@ export const GhostButton: React.FC<GhostButtonProps> = ({
   ...props
 }) => {
   return (
-    <motion.button
+    <MotionButton
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={`
@@ -23,7 +27,7 @@ export const GhostButton: React.FC<GhostButtonProps> = ({
       {...props}
     >
       {children}
-    </motion.button>
+    </MotionButton>
   )
 }
 
