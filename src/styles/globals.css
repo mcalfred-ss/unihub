@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure search and floating inputs sit above overlays */
+.search-input, .filters-bar {
+  position: relative;
+  z-index: 50; /* place above header/overlays */
+  pointer-events: auto;
+}

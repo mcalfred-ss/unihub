@@ -1,0 +1,49 @@
+{
+  "colors": {
+    "primary": {
+      "value": "#00E0D6",
+      "type": "color",
+      "description": "Primary brand color (aqua)"
+    },
+    "text": {
+      "value": "#072A2A",
+      "type": "color",
+      "description": "Primary text color"
+    },
+    "background": {
+      "value": "#E6FFFB",
+      "type": "color",
+      "description": "Background color"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "ui": {
+        "value": "Inter",
+        "type": "fontFamily",
+        "description": "UI font family"
+      },
+      "display": {
+        "value": "Poppins",
+        "type": "fontFamily",
+        "description": "Display font family"
+      }
+    }
+  },
+  "borderRadius": {
+    "pill": {
+      "value": "9999px",
+      "type": "borderRadius",
+      "description": "Pill-style border radius"
+    }
+  },
+  "spacing": {
+    "xs": { "value": "0.25rem", "type": "spacing" },
+    "sm": { "value": "0.5rem", "type": "spacing" },
+    "md": { "value": "1rem", "type": "spacing" },
+    "lg": { "value": "1.5rem", "type": "spacing" },
+    "xl": { "value": "2rem", "type": "spacing" },
+    "2xl": { "value": "3rem", "type": "spacing" }
+  }
+}
+
