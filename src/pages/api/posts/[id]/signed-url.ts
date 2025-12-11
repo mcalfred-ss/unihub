@@ -87,7 +87,6 @@ export default async function handler(
     if (urlError) {
       console.error('Signed URL creation error:', {
         message: urlError.message,
-        statusCode: urlError.statusCode,
         error: urlError,
         bucket: 'uploads',
         path: post.storage_path,
@@ -99,7 +98,7 @@ export default async function handler(
 
       if (
         urlError.message?.toLowerCase().includes('bucket not found') ||
-        urlError.statusCode === 404
+        urlError.message?.toLowerCase().includes('404')
       ) {
         errorMessage =
           'Bucket "uploads" not found. Please create the bucket in Supabase Storage dashboard.'

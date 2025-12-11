@@ -1,6 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+// Cast motion.button to any to avoid FramerMotion/React typing mismatch during CI builds.
+// This is a pragmatic fix for production builds; runtime behavior stays the same.
+const MotionButton: any = motion.button
+
 interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
   isLoading?: boolean
@@ -14,7 +18,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ...props
 }) => {
   return (
-    <motion.button
+    <MotionButton
       whileHover={{ scale: disabled || isLoading ? 1 : 1.02 }}
       whileTap={{ scale: disabled || isLoading ? 1 : 0.98 }}
       disabled={disabled || isLoading}
@@ -54,7 +58,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       ) : (
         children
       )}
-    </motion.button>
+    </MotionButton>
   )
 }
 

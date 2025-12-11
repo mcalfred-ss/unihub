@@ -24,13 +24,13 @@ export async function uploadToStorage(path: string, file: File) {
 
     if (error) {
       // Improve diagnostics for bucket not found
-      if (error?.message?.toLowerCase().includes('bucket not found') || error?.status === 404) {
+      if (error?.message?.toLowerCase().includes('bucket not found') || error?.message?.toLowerCase().includes('404')) {
         throw new Error('Bucket not found. Confirm a bucket named "uploads" exists in Supabase Storage.')
       }
       throw error
     }
 
-    console.log('Storage upload succeeded:', data?.Key ?? data)
+    console.log('Storage upload succeeded:', data?.path ?? data)
     return data
   } catch (err: any) {
     console.error('Storage upload error:', err)
